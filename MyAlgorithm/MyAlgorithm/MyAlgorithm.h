@@ -33,7 +33,13 @@ algname_begin
 
 //using namespace std;   //防止命名空间污染
 //extern int size;
-/*声明部分*/
+
+//bubsort:经典的冒泡排序  时间复杂度：O(n^2) 辅助空间：O(1)
+template<class It>
+inline void bubsort(It first,It last)
+{
+
+}
 
 template<class T>
 class Qarr {
@@ -54,7 +60,7 @@ private:
 
 };
 
-/*定义部分*/
+
 
 
 
