@@ -1,10 +1,18 @@
 #include "MyAlgorithm.h"
 //#include <array>
+
+bool aa(int a,int b)
+{
+	int value = 1;
+	return value;
+}
 using namespace calg;
 using namespace std;
 int main()
 {
-
+	int a[100] = { 0 };
+	int x = 0, y = 0;
+	cout << bubsort(&a, x, y, aa) << endl;
 	int ab[20] = { 0 };
 	sort(ab, ab + 1);
 	cout << "hello world" << endl;

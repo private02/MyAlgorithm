@@ -1,4 +1,5 @@
 // 2016年3月2日21:50:09 ~     Create by 陈磊 V1.0.0
+//当前版本V1.0.0.4
 // 于 ...  修改  ...
 
 //My_Algorithm:包含一些高效的算法与数据结构（非STL）
@@ -35,10 +36,10 @@ algname_begin
 //extern int size;
 
 //bubsort:经典的冒泡排序  时间复杂度：O(n^2) 辅助空间：O(1)
-template<class It>
-inline void bubsort(It first,It last)
+template<typename T>
+inline int bubsort(T a,int first,int last,bool(*f)(int a,int b))
 {
-
+	return 1;
 }
 
 template<class T>
@@ -87,6 +88,5 @@ inline auto Qarr<T>::operator[](int x)
 
 
 algname_end
-
 
 #endif
