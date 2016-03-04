@@ -1,5 +1,5 @@
 // 2016年3月2日21:50:09 ~     Create by 陈磊 V1.0.0
-//当前版本V1.0.0.4
+//当前版本V1.0.0.28
 // 于 ...  修改  ...
 
 //My_Algorithm:包含一些高效的算法与数据结构（非STL）
@@ -27,7 +27,7 @@
 #include <map>
 #include <iostream>
 #include <array>
-
+#include <time.h>
 
 algname_begin
 
@@ -37,25 +37,215 @@ algname_begin
 
 //bubsort:经典的冒泡排序  时间复杂度：O(n^2) 辅助空间：O(1)
 template<typename T>
-inline int bubsort(T a,int first,int last,bool(*f)(int a,int b))
+inline void bubsort(T a,int first,int last,bool(*f)(long a,long b))
 {
-	return 1;
+	for (int i = first;i < last;i++)
+		for (int j = last;j > i;j--)
+		if (!(*f)(a[i],a[j]))
+		{
+			swap(a[i], a[j]);
+		}
 }
+
+template<typename T>
+inline void selsort(T a, int first, int last, bool(*f)(int a, int b))
+{
+	for (int i = first;i < last;i++)
+	{
+		int lowindex = i;
+		for (int j = last;j > i;j--)
+		{
+			if ((*f)(a[j], a[lowindex]))
+			{
+				lowindex = j;
+			}
+		}
+		swap(a[i], a[lowindex]);
+	}
+}
+
+template<typename T>
+inline void bubsort(T a, int first, int last, bool(*f)(double a, double b))
+{
+	for (int i = first;i < last;i++)
+		for (int j = last;j > i;j--)
+			if (!(*f)(a[i], a[j]))
+			{
+				swap(a[i], a[j]);
+			}
+}
+
+template<typename T>
+inline void bubsort(T a, int first, int last, bool(*f)(float a, float b))
+{
+	for (int i = first;i < last;i++)
+		for (int j = last;j > i;j--)
+			if (!(*f)(a[i], a[j]))
+			{
+				swap(a[i], a[j]);
+			}
+}
+
+template<typename T>
+inline void bubsort(T a, int first, int last, bool(*f)(char a, char b))
+{
+	for (int i = first;i < last;i++)
+		for (int j = last;j > i;j--)
+			if (!(*f)(a[i], a[j]))
+			{
+				swap(a[i], a[j]);
+			}
+}
+
+template<typename T>
+inline void bubsort(T a, int first, int last, bool(*f)(long long a, long long b))
+{
+	for (int i = first;i < last;i++)
+		for (int j = last;j > i;j--)
+			if (!(*f)(a[i], a[j]))
+			{
+				swap(a[i], a[j]);
+			}
+}
+
+template<typename T>
+inline void bubsort(T a, int first, int last, bool(*f)(int a, int b))
+{
+	for (int i = first;i < last;i++)
+		for (int j = last;j > i;j--)
+			if (!(*f)(a[i], a[j]))
+			{
+				swap(a[i], a[j]);
+			}
+}
+
+
+template<typename T>
+inline void selsort(T a, int first, int last, bool(*f)(long a, long b))
+{
+	for (int i = first;i < last;i++)
+	{
+		int lowindex = i;
+		for (int j = last;j > i;j--)
+		{
+			if ((*f)(a[j], a[lowindex]))
+			{
+				lowindex = j;
+			}
+		}
+		swap(a[i], a[lowindex]);
+	}
+}
+
+
+template<typename T>
+inline void selsort(T a, int first, int last, bool(*f)(long long a, long long b))
+{
+	for (int i = first;i < last;i++)
+	{
+		int lowindex = i;
+		for (int j = last;j > i;j--)
+		{
+			if ((*f)(a[j], a[lowindex]))
+			{
+				lowindex = j;
+			}
+		}
+		swap(a[i], a[lowindex]);
+	}
+}
+
+template<typename T>
+inline void selsort(T a, int first, int last, bool(*f)(float a, float b))
+{
+	for (int i = first;i < last;i++)
+	{
+		int lowindex = i;
+		for (int j = last;j > i;j--)
+		{
+			if ((*f)(a[j], a[lowindex]))
+			{
+				lowindex = j;
+			}
+		}
+		swap(a[i], a[lowindex]);
+	}
+}
+
+template<typename T>
+inline void selsort(T a, int first, int last, bool(*f)(double a, double b))
+{
+	for (int i = first;i < last;i++)
+	{
+		int lowindex = i;
+		for (int j = last;j > i;j--)
+		{
+			if ((*f)(a[j], a[lowindex]))
+			{
+				lowindex = j;
+			}
+		}
+		swap(a[i], a[lowindex]);
+	}
+}
+
+template<typename T>
+inline void selsort(T a, int first, int last, bool(*f)(char a, char b))
+{
+	for (int i = first;i < last;i++)
+	{
+		int lowindex = i;
+		for (int j = last;j > i;j--)
+		{
+			if ((*f)(a[j], a[lowindex]))
+			{
+				lowindex = j;
+			}
+		}
+		swap(a[i], a[lowindex]);
+	}
+}
+
+//template<typename T,typename X>
+//inline void selsort(T a, int first, int last, bool(*f)(Qarr<X> a, Qarr<X> b))
+//{
+//	for (int i = first;i < last;i++)
+//	{
+//		int lowindex = i;
+//		for (int j = last;j > i;j--)
+//		{
+//			if ((*f)(a[j], a[lowindex]))
+//			{
+//				lowindex = j;
+//			}
+//		}
+//		swap(a[i], a[lowindex]);
+//	}
+//}
 
 template<class T>
 class Qarr {
 public:
 
 	
-	Qarr(int sizes);
+	Qarr(int start1 = 0,int end1 = 1000);
 
+	~Qarr()
+	{
+		delete p;
+	}
+
+
+	void Modify(int num, int location);
+
+	
 	auto operator[](int x);//快速转到定义：  行
 
 private:
-	
-	int size;
+	int start;
+	int end;
 	T* p;
-	
+	int offset;
 
 
 
@@ -66,26 +256,33 @@ private:
 
 
 template<class T>
-inline Qarr<T>::Qarr(int sizes)
+inline Qarr<T>::Qarr(int start1 = 0,int end1 = 1000)
 {
-	
-	p = new int[sizes];
-	size = sizes;
-	
+	p = new int[end1 - start1 + 1];
+	start = start1;
+	end = end1;
+	offset = start - 0;
 }
+
+
 
 template<class T>
 inline auto Qarr<T>::operator[](int x)
 {
-	if (x > size - 1)
+	if (x > end || x < start)
 	{
-		std::cout << "Error: An array subscript crossing the line\n";// << std::endl;
-		return p[-1];
+		srand(time(NULL));
+		return rand()*(rand()%1000);
 	}
-	return p[x];
+	return p[x - offset];
 }
 
 
+template<class T>
+inline void Qarr<T>::Modify(int num, int location)
+{
+	p[location - offset] = num;
+}
 
 algname_end
 
